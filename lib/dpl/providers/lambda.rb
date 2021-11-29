@@ -83,16 +83,19 @@ module Dpl
 
         def update_config
           info :update_config
+          sleep(0.5)
           response = client.update_function_configuration(function_config)
           response.function_arn
         end
 
         def update_tags(arn)
+          sleep(0.5)
           info :update_tags
           client.tag_resource(tag_resource(arn))
         end
 
         def update_code
+          sleep(0.5)
           info :update_code
           client.update_function_code(function_code)
         end
