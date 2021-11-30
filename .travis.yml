@@ -10,6 +10,9 @@ rvm:
 - 2.6.2
 - 2.7.2
 
+env:
+  - SKIP_TEST_DEPENDENCIES=true
+
 cache:
   - bundler
 
