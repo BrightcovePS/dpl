@@ -46,3 +46,4 @@ jobs:
       python: 3.6
   allow_failures:
     - rvm: 2.7.2
+    - rvm: 2.2.7
