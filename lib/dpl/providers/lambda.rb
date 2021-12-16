@@ -13,7 +13,7 @@ module Dpl
         tbd
       str
 
-      gem 'aws-sdk-lambda', '~> 1.0'
+      gem 'aws-sdk-lambda', '~> 1.75.0'
       gem 'rubyzip', '~> 1.2.2', require: 'zip'
 
       env :aws, :lambda
@@ -76,23 +76,26 @@ module Dpl
         end
 
         def update
-          arn = update_config
-          update_tags(arn) if function_tags?
+          # arn = update_config
+          # update_tags(arn) if function_tags?
           update_code
         end
 
         def update_config
           info :update_config
+          sleep(1)
           response = client.update_function_configuration(function_config)
           response.function_arn
         end
 
         def update_tags(arn)
+          sleep(1)
           info :update_tags
           client.tag_resource(tag_resource(arn))
         end
 
         def update_code
+          sleep(1)
           info :update_code
           client.update_function_code(function_code)
         end
